@@ -15,7 +15,6 @@ const upload = multer({ storage: storage });
 Router.post("/update/user", upload.single("profileImage"), async (req, res) => {
   if (req.user) {
     if (req.file) {
-      console.log(req.file);
       const body = req.body;
       const updatedUserData = {
         body,
@@ -48,12 +47,11 @@ Router.post("/update/user/profile", async (req, res) => {
 
   if (user) {
     const UpdateSocial = await User.findByIdAndUpdate(user._id, body);
-    console.log(UpdateSocial);
   }
 });
 Router.post("/check-password", async (req, res) => {
   const { Password } = req.body;
-  console.log(req.body);
+
   const user = await User.findById(req.user._id);
   const match = await bcrypt.compare(Password, user.Password);
   if (match) {
