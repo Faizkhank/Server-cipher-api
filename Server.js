@@ -11,7 +11,10 @@ const cors = require("cors");
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
-  cors({ origin: ["https://cipher-five.vercel.app"], credentials: true })
+  cors({
+    origin: ["https://cipher-five.vercel.app", "http://localhost:3000"],
+    credentials: true,
+  })
 );
 app.use(cookieParser());
 app.set("trust proxy", 1);
