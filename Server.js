@@ -8,16 +8,13 @@ const bodyParser = require("body-parser");
 const Update = require("./Update/Update");
 const Followers = require("./Update/Followers");
 const cors = require("cors");
-
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
-  cors({
-    credentials: true,
-    origin: ["http://localhost:3000", "https://cipher-five.vercel.app/"],
-  })
+  cors({ origin: ["https://cipher-five.vercel.app"], credentials: true })
 );
 app.use(cookieParser());
+app.set("trust proxy", 1);
 app.use(
   session({
     secret: "supersecret",
