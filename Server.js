@@ -6,7 +6,9 @@ const cookieParser = require("cookie-parser");
 const Authroute = require("./Authentication/Authroute");
 const bodyParser = require("body-parser");
 const Update = require("./Update/Update");
+const Followers = require("./Update/Followers");
 const cors = require("cors");
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
@@ -36,6 +38,7 @@ app.get("/", (req, res) => {
 });
 app.use("/", Authroute);
 app.use("/", Update);
+app.use("/", Followers);
 app.listen(process.env.PORT || 4000, () => {
   console.log("Server runnings");
 });

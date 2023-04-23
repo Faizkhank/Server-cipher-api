@@ -27,6 +27,16 @@ Router.post("/user/login", passport.authenticate("local"), (req, res) => {
       followers: req.user.followers,
       Email: req.user.Email,
       id: req.user._id,
+      followerscount: req.user.followerscount,
+      Details: {
+        About_Me: req.user.About_Me,
+        linkedin: req.user.linkedin,
+        twitter: req.user.twitter,
+        github: req.user.github,
+        instagram: req.user.instagram,
+        facebook: req.user.facebook,
+        website: req.user.website,
+      },
     };
     res.json({ user: users });
   } else res.send("failed to login");
@@ -40,6 +50,16 @@ Router.get("/login/success", (req, res) => {
       followers: req.user.followers,
       Email: req.user.Email,
       id: req.user._id,
+      followerscount: req.user.followerscount,
+      Details: {
+        About_Me: req.user.About_Me,
+        linkedin: req.user.linkedin,
+        twitter: req.user.lwitter,
+        github: req.user.github,
+        instagram: req.user.instagram,
+        facebook: req.user.facebook,
+        website: req.user.website,
+      },
     };
     res.status(200).json({
       success: true,

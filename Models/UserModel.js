@@ -19,10 +19,8 @@ const userSchema = new mongoose.Schema({
     data: Buffer,
     contentType: String,
   },
-  followers: {
-    type: [String], // followers field is an array of strings
-    default: [], // default value is an empty array
-  },
+  followers: [{ followers: String }],
+  followerscount: { type: Number, default: "0" },
   Email: {
     type: String,
     required: true,
@@ -31,10 +29,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Phonenumber: {
-    type: String,
-    default: "0",
-  },
+
   facebook: { type: String, default: "" },
   twitter: { type: String, default: "" },
   instagram: { type: String, default: "" },
@@ -44,6 +39,7 @@ const userSchema = new mongoose.Schema({
 
   About_Me: {
     type: String,
+    default: "",
   },
 });
 const User = mongoose.model("User", userSchema);
