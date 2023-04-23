@@ -32,7 +32,7 @@ Router.post("/update/user", upload.single("profileImage"), async (req, res) => {
       );
     } else {
       const body = req.body;
-
+      console.log(req.body);
       const Update = await User.findByIdAndUpdate(req.user._id, body, {
         new: true,
       });
@@ -48,6 +48,7 @@ Router.post("/update/user/profile", async (req, res) => {
   if (user) {
     const UpdateSocial = await User.findByIdAndUpdate(user._id, body);
   }
+  res.send("Updated");
 });
 Router.post("/check-password", async (req, res) => {
   const { Password } = req.body;

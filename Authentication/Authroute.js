@@ -18,6 +18,15 @@ Router.post("/register", async (req, res) => {
     res.send("user already exist");
   }
 });
+Router.get("/logout", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("http://localhost:3000/");
+  });
+});
+
 Router.post("/user/login", passport.authenticate("local"), (req, res) => {
   if (req.user) {
     const users = {
@@ -36,6 +45,8 @@ Router.post("/user/login", passport.authenticate("local"), (req, res) => {
         instagram: req.user.instagram,
         facebook: req.user.facebook,
         website: req.user.website,
+        education: req.user.education,
+        current: req.user.current,
       },
     };
     res.json({ user: users });
@@ -59,6 +70,8 @@ Router.get("/login/success", (req, res) => {
         instagram: req.user.instagram,
         facebook: req.user.facebook,
         website: req.user.website,
+        education: req.user.education,
+        current: req.user.current,
       },
     };
     res.status(200).json({

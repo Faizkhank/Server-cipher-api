@@ -41,6 +41,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+  education: {
+    type: String,
+    default: "",
+  },
+  current: {
+    type: String,
+    default: "",
+  },
 });
 const User = mongoose.model("User", userSchema);
 module.exports = User;
