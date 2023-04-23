@@ -80,7 +80,7 @@ Router.get("/login/success", (req, res) => {
       user: users,
       //   cookies: req.cookies
     });
-  }
+  } else res.send(false);
 });
 
 module.exports = Router;
