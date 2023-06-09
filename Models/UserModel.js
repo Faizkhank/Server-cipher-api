@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 dotenv.config();
 mongoose.connect(
-  "mongodb+srv://faizk650:faizkhan1107@cluster0.decesr3.mongodb.net/projectm",
+  "mongokey",
   { useNewUrlParser: true }
 );
 
